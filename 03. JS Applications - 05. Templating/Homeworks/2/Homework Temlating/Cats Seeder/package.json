@@ -1,0 +1,7 @@
+{
+  "name": "Handlebars-Exercises-Skeleton",
+  "version": "1.0.0",
+  "dependencies": {
+    "handlebars": "^4.0.11"
+  }
+}

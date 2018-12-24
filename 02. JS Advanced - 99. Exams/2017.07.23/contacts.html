@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts Builder</title>
+    <style>
+        article { background: #EEE; padding: 1px; width: 250px; margin: 1px; }
+        .title { background: #DDD; padding: 5px; font-weight: bold; }
+        .title button { float: right }
+        .info { margin: 5px; }
+        .info span { display: block; }
+        .online { background: #9E9; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="04.%20Contacts.js"></script>
+</head>
+<body>
+<button onclick="f()">CLICK</button>
+<script>function f() {
+    class Contact {
+        constructor(firstName, lastName, phone, email) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.phone = phone;
+            this.email = email;
+            this.online = false;
+        }
+        get firstName() {
+            return this._firstName;
+        }
+
+        set firstName(value) {
+            if (typeof value === "string") {
+                this._firstName = value;
+            }
+
+        }
+
+        get lastName() {
+            return this._lastName;
+        }
+
+        set lastName(value) {
+            if (typeof value === "string") {
+                this._lastName = value;
+            }
+        }
+
+        get phone() {
+            return this._phone;
+        }
+
+        set phone(value) {
+            if (typeof value === "string") {
+                this._phone = value;
+            }
+        }
+
+        get email() {
+            return this._email;
+        }
+
+        set email(value) {
+            if (typeof value === "string") {
+                this._email = value;
+            }
+        }
+        render(id) {
+            if (typeof id === "string") {
+                let currentArticle = $("<article>");
+                let titleDiv = $(`<div class="title">${this._firstName} ${this._lastName}<button>&#8505;</button></div>`);
+                currentArticle.append(titleDiv);
+                let infoDiv = $(`<div class="info" style="display: none">
+        <span>&phone; ${this._phone}</span>
+        <span>&#9993; ${this._email}</span>
+    </div>`);
+
+                let infoButton = $(".title button");
+                infoButton.on("click",function(ev){
+                    let lastDiv = ev.target.parentNode.parentNode.lastChild;
+                    console.log(lastDiv);
+                    if ($(lastDiv).css("display")==="block") {
+                       $(lastDiv).css("display","none");
+                   } else {
+                       $(lastDiv).css("display","block");
+                   }
+                });
+                currentArticle.append(infoDiv);
+
+                $(`#${id}`).append(currentArticle);
+            }
+        }
+    }
+    let contacts = [
+        new Contact("Ivan", "Ivanov", "0888 123 456", "i.ivanov@gmail.com"),
+        new Contact("Maria", "Petrova", "0899 987 654", "mar4eto@abv.bg"),
+        new Contact("Jordan", "Kirov", "0988 456 789", "jordk@gmail.com")
+    ];
+    contacts.forEach(c => c.render('main'));
+
+// After 1 second, change the online status to true
+    setTimeout(() => contacts[1].online = true, 2000);
+}</script>
+<div id="main"></div>
+</body>
+</html>

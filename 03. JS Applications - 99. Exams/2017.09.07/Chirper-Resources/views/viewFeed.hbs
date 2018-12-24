@@ -1,0 +1,21 @@
+{{>header}}
+{{>navigation}}
+<section id="viewFeed">
+    <div class="content">
+        <div class="chirper">
+
+            <h2 class="titlebar">{{username}}</h2>
+
+            {{>formSubmitChirp}}
+
+            {{>userStats}}
+        </div>
+        <div id="chirps" class="chirps"><h2 class="titlebar">Chirps</h2>
+            {{#each articles}}
+                {{> articles}}
+            {{/each}}
+            <!-- TODO Load more articles -->
+        </div>
+    </div>
+</section>
+{{>footer}}

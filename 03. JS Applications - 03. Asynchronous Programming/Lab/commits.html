@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github Commits</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+GitHub username:
+<input type="text" id="username" value="nakov" /> <br>
+Repo: <input type="text" id="repo" value="nakov.io.cin" />
+<button onclick="loadCommits()">Load Commits</button>
+<ul id="commits"></ul>
+<script>
+    function loadCommits() {
+        let username = $("#username");
+        let repo = $("#repo");
+        let commits = $("#commits");
+        if (username.val().trim()!==""&&repo.val().trim()!=="") {
+            let url = `https://api.github.com/repos/${username.val()}/${repo.val()}/commits`;
+            $.ajax({
+                method: "GET",
+                url: url
+            }).then(getCommits).catch(handleError);
+        }
+        function getCommits(commitsInfo) {
+            commits.empty();
+            for (let commit of commitsInfo) {
+                let author = commit.commit.author.name;
+                let message = commit.commit.message;
+                let li = $("<li>").text(`${author}: ${message}`);
+                commits.append(li);
+            }
+        }
+        function handleError(err) {
+            commits.empty();
+            commits.append($(`<li>Error: ${err.status} (${err.statusText})</li>`));
+        }
+    }
+</script>
+</body>
+</html>

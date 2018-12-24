@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Http Status Cats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="../../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="catSeeder.js"></script>
+</head>
+<body>
+<div id="allCats">
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat100.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat200.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat204.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat301.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat304.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat400.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat404.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat406.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat410.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat500.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+    <div class="card col-md-4">
+        <img class="card-img-center" src="images/cat511.jpg" width="250" height="250" alt="Card image cap">
+        <div class="card-block">
+            <button class="btn btn-primary">Show status code</button>
+        </div>
+    </div>
+</div>
+<script type="text/x-handlebars-template" id="cat-template">
+    <div id="{{id}}">
+        <h4 class="card-title">Status Code: {{id}}</h4>
+        <p class="card-text">{{status}}</p>
+    </div>
+</script>
+<script src="template.js"></script>
+</body>
+</html>
